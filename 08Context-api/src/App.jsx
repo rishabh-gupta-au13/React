@@ -7,7 +7,7 @@ function App() {
 
   return (
     <UserContextProvider>
-     <h1>State Managemtnt</h1>
+     <h1>State Management</h1>
     </UserContextProvider>
   )
 }
