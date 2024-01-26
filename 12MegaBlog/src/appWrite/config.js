@@ -1,5 +1,5 @@
 import conf from "../conf/conf.js";
-import { Client, Account, ID,Databases,Query,Storage } from "appwrite";
+import { Client, ID,Databases,Query,Storage } from "appwrite";
 
 
 
@@ -11,8 +11,8 @@ export class Service{
         this.client
       .setEndpoint(conf.appwriteUrl)
       .setProject(conf.appwriteProjectId);
-      this.databases=new Databases(client);
-      this.bucket=new Storage(client);
+      this.databases=new Databases(Client);
+      this.bucket=new Storage(Client);
 
     }
 
@@ -86,7 +86,7 @@ export class Service{
             console.log(error)
         }
     }
-    async uploadFile(fileId){
+    async deleteFile(fileId){
         try{
          await this.bucket.deleteFile(conf.appwriteBucketId,fileId);
          return true
@@ -116,4 +116,4 @@ export class Service{
 
 const service=new Service()
 
-export defaultservice
+export default service
